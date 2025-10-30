@@ -103,7 +103,9 @@ streamlit run app.py
 ## 📊 Experiments & Results  
 
 **Evaluation Metrics:**  
-- Accuracy  
+- Accuracy
+  (Results/CNN_classification_report.png)
+  (Results/VGG_Classification_Report.png) 
 - Confusion Matrix  
 - Classification Report  
 
