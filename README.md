@@ -78,6 +78,7 @@ By leveraging modern CNN architectures, this project achieves strong classificat
 Install the required dependencies:  
 ```bash
 pip install tensorflow numpy matplotlib seaborn scikit-learn streamlit
+```
 
 ### ▶️ Training
 Run the Jupyter Notebook to train both models:  
@@ -88,13 +89,16 @@ jupyter notebook Model_Vgg.ipynb
 
 ### 💾 Model Saving
 After training, models will be saved as:
--cnn_model.h5
--vgg16_model.h5
+```bash
+- cnn_model.h5
+- vgg16_model.h5
+```
 
 ### 💻 Streamlit Web App
 Run the Streamlit app for real-time predictions:  
 ```bash
 streamlit run app.py
+```
 
 ## 📊 Experiments & Results  
 
