@@ -110,8 +110,8 @@ streamlit run app.py
   ![VGG_Classification_Report](Results/VGG_Classification_Report.png)
   
 - Confusion Matrix
-  ![CNN_Confusion Matrix](Result/CNN_confusion_matrix.png)
-  ![VGG_Confusion Matrix](Result/VGG_Confusion_matrix.png)
+  ![CNN_Confusion Matrix](Results/CNN_confusion_matrix.png)
+  ![VGG_Confusion Matrix](Results/VGG_Confusion_matrix.png)
    
 
 ### 🧠 CNN Performance  
@@ -131,15 +131,16 @@ streamlit run app.py
 ### 📈 Training Curves  
 Accuracy and Loss trends for both models show **stable convergence** across epochs, demonstrating effective learning and minimal overfitting. 
 
-![CNN_Training Curves](Result/CNN_Acurracy_loss_Graph.png)
-![VGG_Training Curves](Result/Vgg_accurracy_loss.png)
+![CNN_Training Curves](Results/CNN_Acurracy_loss_Graph.png)
+![VGG_Training Curves](Results/Vgg_accurracy_loss.png)
 
 
 ### 📊 Model Comparison 
 Models achieved **clear class separations** with minimal misclassification after fine-tuning, especially in the VGG16 model.  
 
-![](Result/Model_comparison_metrices.png)
-![](Result/Model_comparison.png)
+![A](Results/Model_comparison_metrices.png)
+![B](Results/Model_comparison.png)
+
 ---
 
 ## 🏁 Conclusion  
