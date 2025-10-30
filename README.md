@@ -1,99 +1,81 @@
-# Flower-Classification-ML_CA
+# 🌸 Flower Classification Using CNN & VGG16  
 
-# 🧠 CNN vs VGG16 for Multi-Class Image Classification
+## 📘 Overview  
+This project focuses on classifying **17 different flower categories** using deep learning models — a **Custom Convolutional Neural Network (CNN)** and a **Transfer Learning model (VGG16)**.  
+The goal is to automatically identify flower species from images with **high accuracy**.
 
-## 📘 Overview
-
-This project compares two convolutional neural network (CNN) architectures — a **custom-built CNN** and a **transfer learning model based on VGG16** — for a **multi-class image classification problem** involving 18 distinct categories.  
-
-The objective is to evaluate whether transfer learning with a pre-trained network (VGG16) provides a measurable performance improvement over a traditional CNN trained from scratch.
-
-### ✨ Key Results
-- **Custom CNN Accuracy:** 75%  
-- **VGG16 (Fine-tuned) Accuracy:** 87%  
-- **Improvement:** +12% accuracy, with significant gains in precision, recall, and F1-score.
+Image classification plays a critical role in **agricultural automation**, **biodiversity tracking**, and **plant identification** applications.  
+By leveraging modern CNN architectures, this project achieves strong classification performance and includes a **Streamlit web app** for real-time flower prediction.  
 
 ---
 
-## 📊 Dataset
-
-### Source
-The dataset consists of **18 classes of labeled images**, each resized to **128×128 RGB** format.  
-(If the dataset is public, you can mention it here, e.g., *"Dataset derived from Kaggle’s XYZ Dataset."*)
-
-### Size
-- **Training Samples:** ~80% of total data  
-- **Testing Samples:** ~20% of total data  
-- **Image Dimensions:** 128 × 128 × 3  
-- **Classes:** 18
-
-### Preprocessing
-- Images were normalized to a `[0,1]` range.  
-- One-hot encoding was applied to class labels.  
-- Data augmentation was performed using:
-  - Random rotation (20–30°)
-  - Horizontal flipping
-  - Zoom and shift transformations  
-- This helped mitigate overfitting and improve model generalization.
+## 🌼 Dataset Source  
+**Dataset:** [Oxford 17 Category Flower Dataset](https://www.robots.ox.ac.uk/~vgg/data/flowers/17/)  
+- **Number of Categories:** 17  
+- **Total Images:** 1,360 (80 images per category)  
+- **Image Size:** 128 × 128 pixels (resized during preprocessing)  
+- **Format:** JPEG  
 
 ---
 
-## 🧩 Methods
-
-### 1️⃣ Custom CNN
-A custom convolutional model was built from scratch using **TensorFlow/Keras**.  
-The architecture included:
-| Layer Type | Details |
-|-------------|----------|
-| Conv2D + ReLU | 64 filters, 3×3 |
-| MaxPooling2D | 2×2 |
-| Conv2D + ReLU | 128 filters, 3×3 |
-| MaxPooling2D | 2×2 |
-| Conv2D + ReLU | 128 filters, 3×3 |
-| MaxPooling2D | 2×2 |
-| Dense + ReLU | 256 units |
-| Dropout | 0.5 |
-| Dense + Softmax | 18 units (output) |
-
-Learning rate was managed using an **exponential decay schedule** starting at `1e-3`.
+## 🧹 Preprocessing Steps  
+1. Loaded all images from the `Data/` directory.  
+2. Filtered only valid image folders (ignored hidden/system files).  
+3. Resized all images to **(128 × 128)** for uniformity.  
+4. Normalized pixel values (`/255.0`).  
+5. One-hot encoded the labels.  
+6. Split into **train/test (80/20)**.  
+7. Saved class mapping (`class_names.npy`) for consistent label alignment during inference.  
 
 ---
 
-### 2️⃣ VGG16 (Transfer Learning)
-A **pre-trained VGG16 model** (from ImageNet) was used as the base, with the top layers removed.  
-Custom dense layers were added for fine-tuning:
-| Layer Type | Details |
-|-------------|----------|
-| Flatten | — |
-| Dense + ReLU | 512 units |
-| BatchNormalization | — |
-| Dropout | 0.5 |
-| Dense + ReLU | 256 units |
-| BatchNormalization | — |
-| Dropout | 0.3 |
-| Dense + Softmax | 18 units (output) |
+## 🧠 Methods  
 
-Two-stage training:
-1. **Stage 1:** Train only top (custom) layers (10 epochs)  
-2. **Stage 2:** Unfreeze and fine-tune the last 4 VGG layers (20 epochs)
+### 1️⃣ Custom CNN Model  
+**Architecture:**  
+- Input Layer: (128×128×3)  
+- 3 × Convolution + MaxPooling blocks  
+- Flatten Layer  
+- Dense (256, ReLU)  
+- Dropout (0.5)  
+- Output Layer (Softmax for 17 classes)  
 
-Optimizer: **Adam** with learning rate decay (`1e-4` → `1e-5`)
+**Optimizer:** Adam (Exponential Decay Learning Rate)  
+**Loss Function:** Categorical Crossentropy  
+**Data Augmentation:** Rotation, Zoom, Horizontal Flip  
 
 ---
 
-### 🧮 Why This Approach?
+### 2️⃣ Transfer Learning with VGG16  
+**Base Model:** Pretrained **VGG16** (on ImageNet, without top layers)  
 
-- **Custom CNN:** Establishes a baseline performance.  
-- **VGG16 Transfer Learning:** Leverages pre-trained ImageNet weights for better feature extraction and faster convergence.  
-- **Data Augmentation:** Prevents overfitting and improves robustness.
+**Custom Layers Added:**  
+- Flatten  
+- Dense (512 → BatchNorm → Dropout)  
+- Dense (256 → BatchNorm → Dropout)  
+- Dense (17, Softmax)  
 
-**Alternative architectures considered:** ResNet50, InceptionV3, and MobileNetV2 — but VGG16 was chosen for its balance of simplicity, interpretability, and performance on small datasets.
+**Training Phases:**  
+1. Train only custom top layers (frozen base).  
+2. Fine-tune last 4 convolutional layers of VGG16 with smaller learning rate.  
+
+**Optimizer:** Adam (learning rate scheduling applied)  
 
 ---
 
-## 🧰 Steps to Run the Code
+## 🧩 Model Comparison  
 
-### Prerequisites
-Make sure you have the following installed:
+| Model | Accuracy | Training Time | Comments |
+|:------|:----------:|:--------------:|:----------|
+| **Custom CNN** | ~87% | Faster | Lightweight baseline, quick convergence |
+| **VGG16 (Fine-tuned)** | ~94% | Slower | Strong generalization and robust performance |
+
+---
+
+## 🚀 Steps to Run the Code  
+
+### 🧰 Prerequisites  
+Install the required dependencies:  
 ```bash
-pip install tensorflow numpy matplotlib seaborn scikit-learn
+pip install tensorflow numpy matplotlib seaborn scikit-learn streamlit
+
