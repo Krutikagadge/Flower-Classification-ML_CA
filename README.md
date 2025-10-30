@@ -104,8 +104,8 @@ streamlit run app.py
 
 **Evaluation Metrics:**  
 - Accuracy
-  (Results/CNN_classification_report.png)
-  (Results/VGG_Classification_Report.png) 
+  ![CNN_Classification_Report](Results/CNN_classification_report.png)
+  ![VGG_Classification_Report](Results/VGG_Classification_Report.png) 
 - Confusion Matrix  
 - Classification Report  
 
