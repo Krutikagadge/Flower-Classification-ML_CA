@@ -103,24 +103,24 @@ streamlit run app.py
 ## 📊 Experiments & Results  
 
 **Evaluation Metrics:**  
-- Accuracy
-  ![CNN_Classification_Report](Results/CNN_classification_report.png)
-  ![VGG_Classification_Report](Results/VGG_Classification_Report.png) 
-- Confusion Matrix  
-- Classification Report  
 
-**Visualization:**  
-- Training curves  
-- Accuracy/Loss plots  
-- Confusion matrices  
+- Classification Report
+    
+  ![CNN_Classification_Report](Results/CNN_classification_report.png)
+  ![VGG_Classification_Report](Results/VGG_Classification_Report.png)
+  
+- Confusion Matrix
+  ![CNN_Confusion Matrix](Result/CNN_confusion_matrix.png)
+  ![VGG_Confusion Matrix](Result/VGG_Confusion_matrix.png)
+   
 
 ### 🧠 CNN Performance  
-- **Accuracy:** ~87%  
+- **Accuracy:** ~75%  
 - **Training Speed:** Fast  
 - **Comment:** Lightweight and effective baseline model  
 
 ### 🌺 VGG16 Fine-Tuned Performance  
-- **Accuracy:** ~94%  
+- **Accuracy:** ~87%  
 - **Generalization:** Strong performance on unseen data  
 - **Comment:** Outperformed baseline CNN and provided more robust classification results  
 
@@ -129,11 +129,17 @@ streamlit run app.py
 ## 🧩 Visualization Examples  
 
 ### 📈 Training Curves  
-Accuracy and Loss trends for both models show **stable convergence** across epochs, demonstrating effective learning and minimal overfitting.  
+Accuracy and Loss trends for both models show **stable convergence** across epochs, demonstrating effective learning and minimal overfitting. 
 
-### 📊 Confusion Matrix  
+![CNN_Training Curves](Result/CNN_Acurracy_loss_Graph.png)
+![VGG_Training Curves](Result/Vgg_accurracy_loss.png)
+
+
+### 📊 Model Comparison 
 Models achieved **clear class separations** with minimal misclassification after fine-tuning, especially in the VGG16 model.  
 
+![](Result/Model_comparison_metrices.png)
+![](Result/Model_comparison.png)
 ---
 
 ## 🏁 Conclusion  
