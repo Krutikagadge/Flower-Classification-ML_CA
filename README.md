@@ -84,6 +84,7 @@ Run the Jupyter Notebook to train both models:
 ```bash
 jupyter notebook Model_CNN.ipynb
 jupyter notebook Model_Vgg.ipynb
+```
 
 ### 💾 Model Saving
 After training, models will be saved as:
