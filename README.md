@@ -8,7 +8,13 @@ Image classification plays a critical role in **agricultural automation**, **bio
 By leveraging modern CNN architectures, this project achieves strong classification performance and includes a **Streamlit web app** for real-time flower prediction.  
 
 ---
-[🎥 Watch Demo Video](Results/Ml_UI (1).mp4)
+## 🎥 Demo Video  
+
+<video width="640" height="360" controls>
+  <source src="https://raw.githubusercontent.com/Krutikagadge/Flower-Classification/main/Results/Ml_UI.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
 ---
 
