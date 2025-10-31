@@ -10,10 +10,8 @@ By leveraging modern CNN architectures, this project achieves strong classificat
 ---
 ## 🎥 Demo Video  
 
-<video width="640" height="360" controls>
-  <source src="https://raw.githubusercontent.com/Krutikagadge/Flower-Classification/main/Results/Ml_UI.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[![🎥 Watch Demo Video](Results/demo_thumbnail.png)](https://github.com/Krutikagadge/Flower-Classification-ML_CA/blob/main/Results/Ml_UI.mp4)
+
 
 
 ---
