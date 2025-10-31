@@ -8,6 +8,9 @@ Image classification plays a critical role in **agricultural automation**, **bio
 By leveraging modern CNN architectures, this project achieves strong classification performance and includes a **Streamlit web app** for real-time flower prediction.  
 
 ---
+[🎥 Watch Demo Video](Results/ML_UI.mp4)
+
+---
 
 ## 🌼 Dataset Source  
 **Dataset:** [Oxford 17 Category Flower Dataset](https://www.robots.ox.ac.uk/~vgg/data/flowers/17/)  
